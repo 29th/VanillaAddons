@@ -87,9 +87,10 @@ class SteamProfilePlugin extends Gdn_Plugin {
     *
     * @param Gdn_Controller $Sender
     */
-   public function ProfileController_SteamProfileOpenID_Create(&$Sender) {
+   public function ProfileController_SteamProfileOpenID_Create($Sender) {
       // Grabbing the $_GET array, processed by our framework
       $RequestGet = Gdn::Request()->Get();
+	  //die( '<pre>' . print_r($RequestGet, true) . '</pre>' );
 
       // Nabbing the mode of the OpenID request, if any
       $OpenIDMode = GetValue('openid_mode', $RequestGet);
@@ -146,7 +147,8 @@ class SteamProfilePlugin extends Gdn_Plugin {
 
       // Assisnging the retrieved data to the form field and loading up the form field view
       $Sender->SetData('SteamID64', $SteamID64);
-      $Sender->Render($this->GetView('steamcommunityid.php'));
+      //$Sender->Render($this->GetView('steamcommunityid.php'));
+	  include($this->GetView('steamcommunityid.php'));
    }
 
    /**
